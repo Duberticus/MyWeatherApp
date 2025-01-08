@@ -1,12 +1,13 @@
 package com.example.weather_app.controller;
 
-import com.example.weather_app.model.WeatherResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+
+import com.example.weather_app.model.WeatherResponse;
 
 @Controller
 public class WeatherController {
@@ -21,7 +22,7 @@ public class WeatherController {
 
     @GetMapping("/weather")
     public String getWeather(@RequestParam("city") String city, Model model) {
-        String url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
+        String url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appId=" + apiKey + "&units=metric";
         RestTemplate restTemplate = new RestTemplate();
         WeatherResponse weatherResponse = restTemplate.getForObject(url, WeatherResponse.class);
 
