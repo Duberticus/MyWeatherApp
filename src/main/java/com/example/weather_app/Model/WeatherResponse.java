@@ -2,6 +2,7 @@ package com.example.weather_app.model;
 
 import java.util.List;
 
+
 public class WeatherResponse {
     private String name;
     private Sys sys;
